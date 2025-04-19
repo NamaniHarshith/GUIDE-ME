@@ -16,11 +16,11 @@ from objdet import *
 
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 # =========== SOS config ==========
-AccountSID = "ACcc9a1291db518460b337107ba073464c"
-AuthToken = "d2e1c8a0e8ddefdfb638720ad4c047ae"
+AccountSID = os.getenv("TWILIO_SID")
+
 
 app = Flask(__name__)
-client = Client(AccountSID, AuthToken)
+client = Client(AccountSID)
 
 
 def sendMessage(client_num, message):
